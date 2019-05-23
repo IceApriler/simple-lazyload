@@ -2,7 +2,7 @@
 
 一个轻量级懒加载库，支持 `img`、`background-image`、 `class` 的懒加载和延时加载。
 
-# 快速上手
+## 快速上手
 
 1. 引入`lazyload.js`
 
@@ -66,12 +66,12 @@ lazy.set({
 
 ```
 
-# 结语
+## 结语
 
 - 使用方法到此结束，具体可以参考`demo.html`。
 - 若是好用，欢迎`star`。
 
-# Todos
+## Todos
 
 [ ] 使用Gulp编译出ES5版本。
 [ ] 发布npm包。
