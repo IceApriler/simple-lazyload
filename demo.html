@@ -45,11 +45,23 @@
     height: 100vh;
   }
   .bottom {
+    position: relative;
     padding: 10vh 20vw;
     width: 50vw;
     height: 100vh;
     border: 3px solid #ED7B60;
     border-radius: 10px;
+  }
+  .bottom::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 200px;
+    width: 100%;
+    height: 10px;
+    background-color: #ededed;
   }
   .inner {
     opacity: 0;
@@ -58,7 +70,7 @@
     opacity: 0;
     transform: translateY(40px);
     animation-name: slide-up;
-    animation-duration: .7s;
+    animation-duration: 1.7s;
     animation-delay: .6s;
     animation-fill-mode: forwards;
     animation-timing-function: cubic-bezier(.25, .46, .45, .94);
@@ -79,7 +91,7 @@
     <div class="inner" data-class="slide-up">
         <div>class & background-image</div>
         <div class="box3" data-img-custom="./images/3.jpg"></div>
-        <div>我会有slide-up的效果</div>
+        <div>新添加了slide-up类， 我会有slide-up的效果</div>
     </div>
   </div>
 </body>
@@ -94,11 +106,11 @@
   }).set({
     mode: 'class',
     dataset: 'data-class',
-    offset: '-30%',
+    offset: '-80%',
   }).set({
     mode: 'img',
     dataset: 'data-img-custom',
-    offset: '-30%',
+    offset: '-80%',
     delay: 0,
   })
 </script>
