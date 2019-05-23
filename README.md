@@ -1,6 +1,7 @@
 # simple-lazyload
 
-一个轻量级懒加载库，支持 `img`、`background-image`、 `class` 的懒加载和延时加载。
+一个轻量级懒加载库，支持 `img`、`background-image`、 `class` 的懒加载和延时加载。 [demo](https://iceapriler.github.io/simple-lazyload/demo.html)
+
 
 ## 快速上手
 
@@ -73,5 +74,5 @@ lazy.set({
 
 ## Todos
 
-[ ] 使用Gulp编译出ES5版本。
-[ ] 发布npm包。
+- [ ] 使用Gulp编译出ES5版本。
+- [ ] 发布npm包。
