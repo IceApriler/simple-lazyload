@@ -12,7 +12,7 @@ class Lazyload {
   }
 
   set(options) {
-    const { dataset = '', mode = '', offset = 0, delay = 0 } = options
+    const { dataset = '', mode = '', offset = 0, delay = 0, handler } = options
     
     if (!this.modeList.includes(mode)) {
       throw new Error('only supportes \'img\' or \'class\'.')
@@ -34,6 +34,7 @@ class Lazyload {
     }
     
     this.store[dataset].delay = delay
+    this.store[dataset].handler = handler
 
     this.store[dataset]._bindListen = this._listen.bind(this)
     window.addEventListener('scroll', this.store[dataset]._bindListen)
@@ -52,7 +53,7 @@ class Lazyload {
   // 加载
   _load() {
     for (let dataset in this.store) {
-      let { mode, nodes, offset, _bindListen, delay } = this.store[dataset]
+      let { mode, nodes, offset, _bindListen, delay, handler } = this.store[dataset]
       nodes = nodes.filter(el => {
         if (this._isInView(el, offset)) {
           switch(mode) {
@@ -63,12 +64,14 @@ class Lazyload {
                 } else {
                   el.style.backgroundImage = `url('${el.getAttribute(`${dataset}`)}')`
                 }
+                handler && handler(el)
               })
               break
             case 'class':
               this._delay(delay, () => {
                 const className = el.getAttribute(`${dataset}`)
                 el.classList.add(className)
+                handler && handler(el)
               })
               break
             default:
